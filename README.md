@@ -21,7 +21,7 @@ Installation and Setup:
   * `{$AWS_ACCESS_KEY}`
   * `{$AWS_SECRET_KEY}`
   * `{$REGION}`
-  * `{$AWS_NAMESPACE_ID}` - Set the the CloudMap Namespace ID you wish to monitor.
+  * `{$AWS_NAMESPACE_ID}` - Set to the CloudMap Namespace ID you wish to monitor.
 * For each service in the CloudMap a count of Healthy, UnHealthy, and Total nodes will be captured.
 
 A few considerations:
