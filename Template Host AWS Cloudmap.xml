@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>4.4</version>
+    <date>2020-03-19T18:26:44Z</date>
+    <groups>
+        <group>
+            <name>Templates</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Template Host AWS Cloudmap</template>
+            <name>Template Host AWS Cloudmap</name>
+            <groups>
+                <group>
+                    <name>Templates</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>Cloudmap</name>
+                </application>
+            </applications>
+            <discovery_rules>
+                <discovery_rule>
+                    <name>Cloudmap Service Discovery</name>
+                    <type>EXTERNAL</type>
+                    <key>cloudmap_stats.py[&quot;--namespace-id&quot;,&quot;{$AWS_NAMESPACE_ID}&quot;,&quot;--access-key&quot;,&quot;{$AWS_ACCESS_KEY}&quot;,&quot;--secret-key&quot;,&quot;{$AWS_SECRET_KEY}&quot;,&quot;--region&quot;,&quot;{$REGION}&quot;,&quot;--discover&quot;]</key>
+                    <item_prototypes>
+                        <item_prototype>
+                            <name>Healthy Cloudmap Count for {#SERVICENAME} - {#SERVICEID}</name>
+                            <type>EXTERNAL</type>
+                            <key>cloudmap_stats.py[&quot;--metric&quot;,&quot;HEALTHY&quot;,&quot;--service-id&quot;,&quot;{#SERVICEID}&quot;,&quot;--namespace-id&quot;,&quot;{$AWS_NAMESPACE_ID}&quot;,&quot;--access-key&quot;,&quot;{$AWS_ACCESS_KEY}&quot;,&quot;--secret-key&quot;,&quot;{$AWS_SECRET_KEY}&quot;,&quot;--region&quot;,&quot;{$REGION}&quot;]</key>
+                            <applications>
+                                <application>
+                                    <name>Cloudmap</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Total Cloudmap Count for {#SERVICENAME} - {#SERVICEID}</name>
+                            <type>EXTERNAL</type>
+                            <key>cloudmap_stats.py[&quot;--metric&quot;,&quot;TOTAL&quot;,&quot;--service-id&quot;,&quot;{#SERVICEID}&quot;,&quot;--namespace-id&quot;,&quot;{$AWS_NAMESPACE_ID}&quot;,&quot;--access-key&quot;,&quot;{$AWS_ACCESS_KEY}&quot;,&quot;--secret-key&quot;,&quot;{$AWS_SECRET_KEY}&quot;,&quot;--region&quot;,&quot;{$REGION}&quot;]</key>
+                            <applications>
+                                <application>
+                                    <name>Cloudmap</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                        <item_prototype>
+                            <name>Unhealthy Cloudmap Count for {#SERVICENAME} - {#SERVICEID}</name>
+                            <type>EXTERNAL</type>
+                            <key>cloudmap_stats.py[&quot;--metric&quot;,&quot;UNHEALTHY&quot;,&quot;--service-id&quot;,&quot;{#SERVICEID}&quot;,&quot;--namespace-id&quot;,&quot;{$AWS_NAMESPACE_ID}&quot;,&quot;--access-key&quot;,&quot;{$AWS_ACCESS_KEY}&quot;,&quot;--secret-key&quot;,&quot;{$AWS_SECRET_KEY}&quot;,&quot;--region&quot;,&quot;{$REGION}&quot;]</key>
+                            <applications>
+                                <application>
+                                    <name>Cloudmap</name>
+                                </application>
+                            </applications>
+                        </item_prototype>
+                    </item_prototypes>
+                </discovery_rule>
+            </discovery_rules>
+            <macros>
+                <macro>
+                    <macro>{$AWS_ACCESS_KEY}</macro>
+                    <value></value>
+                </macro>
+                <macro>
+                    <macro>{$AWS_NAMESPACE_ID}</macro>
+                    <value></value>
+                </macro>
+                <macro>
+                    <macro>{$AWS_SECRET_KEY}</macro>
+                    <value></value>
+                </macro>
+                <macro>
+                    <macro>{$REGION}</macro>
+                    <value>us-east-1</value>
+                </macro>
+            </macros>
+        </template>
+    </templates>
+</zabbix_export>
